@@ -1,0 +1,19 @@
+# Public records only. Do not copy the application or private research here.
+/*
+!/.gitignore
+!/README.md
+!/predictions/
+!/results/
+!/receipts/
+!/corrections/
+
+/predictions/*
+!/predictions/*.json
+/results/*
+!/results/*.json
+/corrections/*
+!/corrections/*.json
+/receipts/*
+!/receipts/*.json
+!/receipts/*.tsq
+!/receipts/*.tsr
