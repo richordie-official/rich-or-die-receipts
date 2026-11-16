@@ -36,7 +36,9 @@ Public records use separate directories:
 
 Only directories containing real records are created. Results and corrections must not overwrite the original prediction. Never backdate a record or invent a prediction to fill a historical gap. A correction must retain its actual creation time.
 
-This initial archive contains no historical prediction or performance data. Automatic publication from the website to this repository is not connected.
+The development automation publishes a dated `predictions/YYYY-MM-DD.json` only after the site's public history API exposes the released choice and its scheduled release time has passed. Each record contains only `date`, the selected `pick`, the site's actual `published_at`, and the original prediction's exact SHA-256 digest (`source_app_digest`). A private LAN site address is never copied. No full payload, private reports, research sources, prompts, or automation state are copied. Existing prediction records are immutable; conflicts stop publication rather than overwrite history.
+
+Git commits and pushes provide a public change history, not independent proof that a prediction existed before market open. These automated records do not claim VERIFIED status and contain no independent RFC 3161 evidence unless a real verified timestamp is explicitly included. Push failure is retried by the development automation; only the dated prediction file is committed.
 
 ## What the evidence proves
 
