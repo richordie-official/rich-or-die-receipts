@@ -1,53 +1,23 @@
-# RICH OR DIE. RECEIPTS
+# RICH OR DIE. PUBLIC ARCHIVE
 
-Daily TQQQ/SQQQ picks, paper-trading results, and verification records.
+This repository archives daily picks and publication times, with the original prediction digest and any available price results or corrections.
 
-We keep receipts. Especially the ugly ones.
+## Archive contents
 
-## What belongs here
+- `predictions/`: dated records of released choices.
+- `results/`: price results referencing the original prediction.
+- `corrections/`: records describing errors and their corrections.
 
-This is the public record archive for RICH OR DIE., not the application source repository.
+Records retain the original prediction. Results and corrections do not replace it. Missing, late, failed, and corrected records remain part of the history. Never backdate a record or invent a prediction to fill a historical gap.
 
-- Daily MACHINE choices and finalized MOB choices.
-- Simulated open-to-close results, with price sources and observation times.
-- Supporting publication and independent timestamp evidence, when available.
-- Missing, late, failed and corrected records, without hiding the originals.
+## Trading and scoring
 
-Private research reports, reviews, algorithm logic, credentials, visitor identifiers and raw databases do not belong here. Market data may be published only when its source permits redistribution.
+The MACHINE picks TQQQ or SQQQ each US stock-market trading day. Scheduled publication is 09:20 America/New_York; actual publication times and delays are recorded.
 
-## The rules
+Results simulate buying at the regular-session opening price and selling at that session's close, with no intraday changes or overnight positions. Early-close sessions use their scheduled close. Returns are compounded and exclude fees, taxes, spreads, and slippage. Provider-reported prices may not be achievable fills. This is not investment advice or a guarantee of returns.
 
-The MACHINE picks TQQQ or SQQQ each US stock-market trading day. Scheduled publication is 09:20 America/New_York. Choices remain hidden before release. Actual release times and delays must be recorded.
+MOB voting closes at 09:30 ET. The majority chooses its ETF; a tie or zero votes produces no MOB choice or return. Visitors can see the MACHINE pick before voting ends, so this is not an independent sentiment survey. Comparisons must identify their common eligible trading days.
 
-We pretend to buy at the regular-session opening price and sell at that session's closing price. No intraday changes. No overnight positions. Early-close sessions use their actual scheduled close.
+## Record updates
 
-Returns are simulated, compounded and exclude fees, taxes, spreads and slippage. Provider-reported open and close prices are not promises of achievable fills. This is not investment advice or a guarantee of returns.
-
-MOB voting closes at 09:30 ET. The majority chooses its ETF. A tie or zero votes produces no MOB choice or return. Visitors can see the MACHINE's choice before voting ends, so this is not an independent sentiment survey. MACHINE-versus-MOB comparisons must identify their common eligible trading days.
-
-## Records
-
-Public records use separate directories:
-
-- `predictions/`: dated JSON records of released choices.
-- `results/`: dated JSON results referencing the original prediction.
-- `receipts/`: public evidence metadata and original RFC 3161 query/response files, when available.
-- `corrections/`: additional JSON records referencing an error and its correction.
-
-Only directories containing real records are created. Results and corrections must not overwrite the original prediction. Never backdate a record or invent a prediction to fill a historical gap. A correction must retain its actual creation time.
-
-The development automation publishes a dated `predictions/YYYY-MM-DD.json` only after the site's public history API exposes the released choice and its scheduled release time has passed. Each record contains only `date`, the selected `pick`, the site's actual `published_at`, and the original prediction's exact SHA-256 digest (`source_app_digest`). A private LAN site address is never copied. No full payload, private reports, research sources, prompts, or automation state are copied. Existing prediction records are immutable; conflicts stop publication rather than overwrite history.
-
-Git commits and pushes provide a public change history, not independent proof that a prediction existed before market open. These automated records do not claim VERIFIED status and contain no independent RFC 3161 evidence unless a real verified timestamp is explicitly included. Push failure is retried by the development automation; only the dated prediction file is committed.
-
-## What the evidence proves
-
-Git makes changes inspectable. Its author and committer dates can be set by the person creating a commit; those dates alone do not prove pre-market publication. An operator can also rewrite repository history. Branch protection limits ordinary rewriting but is not independent time evidence.
-
-A valid independent RFC 3161 timestamp can establish that the matching data existed by the authority's signed time. It does not establish that the data was public then. Check the authority's trust chain and the exact payload hash, not a screenshot or a claimed timestamp in JSON.
-
-A successful Git push does not automatically make a record VERIFIED. GitHub's Verified signature badge is not this experiment's verification status. Evidence must be checked against the relevant trading session's opening time; missing or late evidence stays missing or late.
-
-An on-time prediction does not prove the accuracy of its reported prices or returns. Those require their own source checks. Failed and unavailable checks must remain visible.
-
-Reference: [Git commit dates](https://git-scm.com/docs/git-commit#_date_formats), [GitHub branch protection](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), [RFC 3161](https://www.rfc-editor.org/rfc/rfc3161).
+Each prediction record contains its date, pick, publication time, and source digest. Results and corrections use separate files and do not replace the original pick.
